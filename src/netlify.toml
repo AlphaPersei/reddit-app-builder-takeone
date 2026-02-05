@@ -1,0 +1,12 @@
+# This sets up a proxy to bypass Reddit's CORS policy
+[[redirects]]
+  from = "/reddit-api/*"
+  to = "https://www.reddit.com"
+  status = 200
+  force = true
+
+# This ensures your React app routes correctly on refresh
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
