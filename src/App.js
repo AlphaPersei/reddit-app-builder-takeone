@@ -1,7 +1,7 @@
 
 
 import Header from './components/Header/Header';
-import Reddit from './features/reddit/Reddit.js';
+import Reddit from './features/reddit/TempReddit';
 import BackToTop from './components/BackToTop/BackToTop';
 
 function App() {
