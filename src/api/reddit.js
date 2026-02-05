@@ -1,13 +1,21 @@
-// Use /reddit-api to match the netlify.toml proxy exactly
-export const API_ROOT = '/reddit-api';
 
+// src/api/reddit.js
+
+// Using the /reddit-api prefix to work with the Netlify proxy/netlify.toml
+export const API_ROOT = '/reddit-api'; 
+
+/**
+ * Fetches posts from a subreddit
+ * Sanitizes the path to prevent 301 redirects and CORS errors
+ */
 export const getSubredditPosts = async (subreddit) => {
+  // Removes leading and trailing slashes so we don't get /r/pics/.json
   const scrubbedSubreddit = subreddit.replace(/^\/|\/$/g, '');
   
   const response = await fetch(`${API_ROOT}/${scrubbedSubreddit}.json`, {
     headers: {
-      // Helps prevent the 403 Forbidden errors on live servers
-      'User-Agent': 'MiniRedditPortfolio/1.0'
+      // Identifying the app helps prevent 403 Forbidden errors on shared hosting
+      'User-Agent': 'web:MiniRedditPortfolio:v1.0 (by /u/dev_student_project_2026)'
     }
   });
   
@@ -19,12 +27,17 @@ export const getSubredditPosts = async (subreddit) => {
   return json.data.children.map((post) => post.data);
 };
 
+/**
+ * Fetches comments for a specific post
+ * Reddit returns an array: index [0] is the post, index [1] is the comments
+ */
 export const getPostComments = async (permalink) => {
+  // Removes trailing slash from permalink if it exists
   const scrubbedPermalink = permalink.replace(/\/$/g, '');
   
   const response = await fetch(`${API_ROOT}${scrubbedPermalink}.json`, {
     headers: {
-      'User-Agent': 'MiniRedditPortfolio/1.0'
+      'User-Agent': 'web:MiniRedditPortfolio:v1.0 (by /u/dev_student_project_2026)'
     }
   });
   
@@ -34,9 +47,19 @@ export const getPostComments = async (permalink) => {
   
   const json = await response.json();
 
-  // Array destructuring: gets the second element (comments) safely
+  /** 
+   * Reddit returns an array for comment requests. 
+   * json[0] contains the post info.
+   * json[1] contains the actual comment data.
+   */
   return json[1].data.children.map((comment) => comment.data);
 };
+
+
+
+
+
+
 
 
 /*export const API_ROOT = 'https://reddit.com';
@@ -55,7 +78,7 @@ export const getPostComments = async (permalink) => {
 
   // Reddit returns comments in the second object of the response array
   return json[1].data.children.map((subreddit) => subreddit.data);
-};
-*/
+};*/
+
 
 
