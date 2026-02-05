@@ -1,4 +1,4 @@
-# This sets up a proxy to bypass Reddit's CORS policy
+ This sets up a proxy to bypass Reddit's CORS policy
 [[redirects]]
   from = "/reddit-api/*"
   to = "https://www.reddit.com"
