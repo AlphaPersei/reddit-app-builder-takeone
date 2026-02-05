@@ -1,0 +1,44 @@
+.search-form {
+  display: flex;
+  align-items: center;
+  position: relative; /* Allows the clear button to sit inside the input */
+}
+
+.search-form input {
+  padding: 8px 35px 8px 15px; /* Extra right padding for the 'X' button */
+  border: 1px solid #edeff1;
+  background-color: #f6f7f8;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+/* Change color when user clicks in */
+.search-form input:focus {
+  background-color: #ffffff;
+  border-color: #0079d3; /* Reddit Blue focus */
+  box-shadow: 0 0 0 1px #0079d3;
+}
+
+/* The 'X' Clear Button */
+.clear-button {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #878a8c;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.clear-button:hover {
+  color: #ff4500; /* Reddit Orange hover */
+}

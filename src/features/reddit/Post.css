@@ -1,0 +1,99 @@
+/* The container to center the spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* The actual spinner circle */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 69, 0, 0.2); /* Light orange background */
+  border-top: 3px solid #ff4500; /* Bright Reddit orange top */
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* The rotation logic */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.post-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  padding: 16px;
+  list-style-type: none;
+}
+
+.post-image {
+  width: 100%;       /* Makes image fit the card width */
+  max-height: 500px; /* Prevents super-tall images from taking over */
+  object-fit: contain;
+  background-color: #f6f7f8;
+  border-radius: 4px;
+  margin: 10px 0;
+}
+
+.comment {
+  border-left: 2px solid #edeff1;
+  padding-left: 12px;
+  margin-top: 10px;
+  background-color: #f8f9fa;
+}
+
+.post-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.post-votes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40px;
+  margin-right: 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  padding: 8px 4px;
+}
+
+.post-votes-value {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 4px 0;
+  color: #1a1a1b;
+}
+
+.icon-action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0;
+  transition: transform 0.1s ease;
+}
+
+.icon-action-button:hover {
+  transform: scale(1.2);
+}
+@media (max-width: 480px) {
+  .post-card {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 0; /* Full-width look on mobile */
+  }
+
+  .post-votes-container {
+    width: 30px; /* Slimmer sidebar */
+    margin-right: 8px;
+  }
+
+  .post-title {
+    font-size: 1rem; /* Slightly smaller text */
+  }
+}

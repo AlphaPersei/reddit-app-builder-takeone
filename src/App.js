@@ -1,4 +1,26 @@
-import logo from './logo.svg';
+
+
+import Header from './components/Header/Header';
+import Reddit from './features/reddit/Reddit.js';
+import BackToTop from './components/BackToTop/BackToTop';
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <main>
+        <Reddit />
+      </main>
+      <BackToTop /> {/* It's always listening! */}
+    </div>
+  );
+}
+
+export default App;
+
+
+
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -22,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;*/

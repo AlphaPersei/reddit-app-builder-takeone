@@ -1,3 +1,28 @@
+
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux'; // 1. Import the Provider
+import { store } from './app/store';    // 2. Import your store
+import App from './App';
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <React.StrictMode> 
+    {/* 3. Wrap everything in the Provider and pass the store */}
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
+);
+//Lets you find common bugs in your components early during development.
+
+
+
+
+
+/*
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -14,4 +39,4 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals();*/
