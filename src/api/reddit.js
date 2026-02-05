@@ -1,5 +1,5 @@
 
-export const API_ROOT = '/reddit-api';
+export const API_ROOT = './reddit-api';
 
 /**
  * Fetches posts from a subreddit
